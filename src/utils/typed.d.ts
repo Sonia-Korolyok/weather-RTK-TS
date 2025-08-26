@@ -5,3 +5,7 @@ export interface WeatherInfo {
     pressure: number;
     sunset: string;
 }
+
+// export type WeatherState = WeatherData & {
+//     status: 'idle' | 'loading' | 'succeeded' | 'failed';
+// };
