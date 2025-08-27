@@ -10,7 +10,7 @@ const messageSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchWeather.pending, () => `Loading...`)
-            .addCase(fetchWeather.rejected, () => `Enter correct city name.`)
+            .addCase(fetchWeather.rejected, (_state, action) => action.error.message)
             .addCase(fetchWeather.fulfilled, () => ``)
     }
 })
