@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
-import weather from "../features/weather/weatherSlice.js";
-import message from "../features/message/messageSlice.js";
+import city from "../features/city/citySlice.ts";
+import {weatherApi} from "../features/api/weatherApi.ts";
 export const store = configureStore({
     reducer: {
-        weather, message
-    }
+        city,
+        [weatherApi.reducerPath]: weatherApi.reducer,
+    },
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(weatherApi.middleware)
 });
 
 export type RootState = ReturnType<typeof store.getState>
